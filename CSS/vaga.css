@@ -1,0 +1,176 @@
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(0, 0, 0) rgb(122, 122, 122);
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #8a83f1;
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255);
+  } 
+  /* Body e toolbar */
+  body{
+        background-color: rgba(191, 68, 202, 0.678);
+        font-family: Roboto, sans-serif;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        font-size: 1rem;
+  }
+  .toolbar{
+    background-color: whitesmoke;
+    padding-bottom: 10px;
+    box-shadow: 0 5px 5px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  .toolbar nav{ 
+      display: flex;
+      flex-direction: row;
+      padding: 0.5rem;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .toolbar a {
+      text-decoration: none;
+      color: black;
+      margin: 0.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0);
+  }
+  .toolbar a:hover{
+      border-bottom: 1px solid black;
+  }
+  
+  .button {
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      padding: 0.5rem;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1rem;
+  }
+
+  .login{
+    position: absolute;
+    right:    0;
+    background-color: #584fe0; 
+    color: white;
+    margin-right: 1rem;
+}
+ .login:hover{
+    background-color: #8983d3; 
+}
+
+.btsearch{
+    width: 5rem;
+    border-radius: 60px;
+    background-color: #1100fa; 
+    color: white;
+
+}
+
+ .btsearch:hover{
+    background-color: #8983d3; 
+}
+
+.search-combo {
+    margin-left: 23%;
+    display: flex;
+    width: 60%;
+    border-radius: 50px;
+    border: 1px solid rgb(105, 105, 105);
+}
+.search{
+    width: 90%;
+    margin: 0;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+}
+/* FIM Body e toolbar */
+/* inicio footer */
+footer {
+    position: fixed;
+    margin: 1px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(250, 248, 248);
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }
+/*fim footer */
+/*inicio pagina */
+.vaga {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #8983d3;
+    border-radius: 8px;
+    padding: 3px;
+    margin: 1rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 5px 0 rgba(31, 38, 135, 0.37);
+}
+
+.titulos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titulos h3,p {
+    margin: 0;
+}
+
+.descricao {
+    margin: 1rem;
+}
+
+.btninscrever {
+    width: 100%;
+    border-radius: 60px;
+    background-color: #5ae772; 
+    color: white;
+}
+.gpbtn {
+    float: right;
+}
+
+/* input type file */
+input[type='file'] {
+  display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+label {
+    background-color: #3498db;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    padding: 6px 20px
+  }
+/* fim seletor de arquivo */
+
+table th {
+    background-color: #8983d3;
+    border-radius: 10px;
+}
+
+table tr {
+    text-align: center;
+}
+
+/*fim pagina */
