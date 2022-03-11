@@ -1,0 +1,58 @@
+{
+    "usuarios":[
+        {
+            "id": 2,
+            "nome": "Fulano",
+            "email": "Sincere@april.biz",
+            "phone": "1-770-736-8031 x56442",
+            "senha": "1234"
+        },
+        {
+            "id": 1,
+            "nome": "Leonardo Huttner",
+            "email": "teste@teste.com",
+            "phone": "1-770-736-8031 x56442",
+            "senha": "1234"
+        }
+    ],
+    "vagas":[
+        {
+            "id": 1,
+            "titulo": "Programador Web",
+            "tipo": "Remoto",
+            "cidade": "camaqua",
+            "descricao": "1234",
+            "contato": "9999999999"
+        },
+        {
+            "id": 2,
+            "titulo": "Programador Java",
+            "tipo": "Remoto",
+            "cidade": "camaqua",
+            "descricao": "1234",
+            "contato": "9999999999"
+        },
+        {
+            "id": 3,
+            "titulo": "Programador React",
+            "tipo": "Remoto",
+            "cidade": "camaqua",
+            "descricao": "1234",
+            "contato": "9999999999"
+        }
+    ],
+    "entrevista" : [
+        {
+            "id":1,
+            "vaga":"Programador React",
+            "status":"Aprovado",
+            "obs":""
+        },
+        {
+            "id":2,
+            "vaga":"Programador Java",
+            "status":"Aguardando",
+            "obs":""
+        }
+    ]
+}

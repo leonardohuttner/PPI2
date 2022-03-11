@@ -12,7 +12,7 @@
     <div class="container">
         <h1>Login:</h1>
         <form name="form-login" method="post" action="app/controller/sessoes.php">
-            <input type="text" id="input-usuario" name="usuario" placeholder="Usuario" autocomplete="off"/>
+            <input type="text" id="input-usuario" name="email" placeholder="email" autocomplete="off"/>
             <br />
             <input type="password" id="input-senha" name="senha" placeholder="Senha"/>
             <br />

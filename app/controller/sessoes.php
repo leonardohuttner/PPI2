@@ -1,9 +1,6 @@
 <?php
-    var_dump($_POST['operacao']);
-    exit;
-
-    if(!isset($_RESQUEST['operacao'])) $operacao = null;
-    if(isset($_RESQUEST['operacao'])) $operacao = filter_var($_RESQUEST['operacao']);
+    if(!isset($_REQUEST['operacao'])) $operacao = null;
+    if(isset($_REQUEST['operacao'])) $operacao = filter_var($_REQUEST['operacao']);
     switch($operacao){
         case 'login':
             login();
@@ -13,28 +10,37 @@
             break;
     }
 
-    function login(){
-        if(empty($_RESQUEST['usuario']) || empty($_RESQUEST['senha']) ){
+    function login(){  
+        if(empty($_POST['email']) || empty($_POST['senha']) ){
             header('Location: ../../login.php?erro=1');
             return false;
         }
 
-        $usuario = filter_var($_RESQUEST['usuario']);
+        $email = filter_var($_POST['email']);
         // FILTER_VALIDADE_EMAIL
-        $senha = filter_var($_RESQUEST['senha']);
-
-        if($usuario != 'teste@teste.com' && $senha !='1234' ){
-            header('Location: ../../login.php?erro=2');
-            return false;
+        $senha = filter_var($_POST['senha']);
+        
+        $json = file_get_contents("bd.json");
+        $data = json_decode($json);
+        
+        foreach ($data->usuarios as $item) {
+            if($email == $item->email){
+                if($senha == $item->senha){
+                    if (!session_id()) {
+                        session_start();
+                    }
+                    session_regenerate_id();
+                    $_SESSION['email'] = $email;
+                    $_SESSION['logado'] = true;
+                    $_SESSION['nome'] = $item->nome;
+                    header('Location: ../../perfil.php');
+                    return true;
+                }else {
+                    header('Location: ../../login.php?erro=2&caiu1');
+                    return false;
+                }
+            }
         }
-
-        session_start();
-        session_regenerate_id();
-        $_SESSION['email'] = $usuario;
-        $_SESSION['logado'] = true;
-        $_SESSION['nome'] = "Fulano";
-        header('Location: ../../perfil.php');
-        return true;
     }
 
     function logout(){

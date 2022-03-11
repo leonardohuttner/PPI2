@@ -35,55 +35,12 @@
             </div>
         </div>
 
-        <div class="card">
-            <h3>Programador Java</h3>
-            <span>Camaqua,RS</span>
-            <p>Aliquam sit amet sollicitudin velit.
-                In eu turpis sit amet tellus ultricies luctus in ut leo.
-                Nunc tempor quis nisl auctor varius. Ut molestie euismod
-                tellus, a imperdiet neque cursus sed. Class aptent taciti
-                sociosqu ad litora torquent per conubia nostra, per inceptos
-                himenaeos. Etiam felis est, pellentesque eget turpis et
-                ,iaculis semper nulla. Etiam lectus neque, interdum
-                porttitor posuere et, molestie in erat. Nunc bibendum
-                vestibulum arcu, non posuere ante mollis in. Suspendisse
-                potenti. Duis ipsum arcu, mollis ut scelerisque nec,
-                viverra sit amet justo.
-            </p>
-            <div class="gpBtn">
-                <input type="button" value="Detalhes" class="button">
-                <input type="button" value="Entrar em contato" class="button">
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>Programador JavaScript</h3>
-            <span>Camaqua,RS</span>
-            <p>Aliquam sit amet sollicitudin velit.
-                In eu turpis sit amet tellus ultricies luctus in ut leo.
-                Nunc tempor quis nisl auctor varius. Ut molestie euismod
-                tellus, a imperdiet neque cursus sed. Class aptent taciti
-                sociosqu ad litora torquent per conubia nostra, per inceptos
-                himenaeos. Etiam felis est, pellentesque eget turpis et
-                ,iaculis semper nulla. Etiam lectus neque, interdum
-                porttitor posuere et, molestie in erat. Nunc bibendum
-                vestibulum arcu, non posuere ante mollis in. Suspendisse
-                potenti. Duis ipsum arcu, mollis ut scelerisque nec,
-                viverra sit amet justo.
-            </p>
-            <div class="gpBtn">
-                <input type="button" value="Detalhes" class="button">
-                <input type="button" value="Entrar em contato" class="button">
-            </div>
-        </div>
     </section>
     <footer>
         <section>
             Desenvolvido por:
             <br>
             <a href="https://github.com/leonardohuttner">Leonardo Huttner</a>
-            <br>
-            <a href="https://github.com/MaicoBaum">Maico Baum</a>
         </section>
     </footer>
 </body>
