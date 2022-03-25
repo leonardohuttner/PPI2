@@ -9,8 +9,22 @@
 </head>
 <body>
    <?php
-        require_once('layout/header.php');
+    session_start();
+        if(!$_SESSION['logado']){
+            require_once('layout/header.php');
+        } else {
+            require_once('layout/header_logado.php');
+        }
     ?>
+
+    <section class="cards">
+        <?php
+            require_once('app/entities/Vaga.php');
+            $dados = new Vaga();
+            $dados->listar();
+            echo($dados)
+        ?>
+    </section>
 
     <section class="cards">
         <h1>Jobs do momento:</h1>
