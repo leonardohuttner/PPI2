@@ -1,13 +1,17 @@
 <!DOCTYPE html>
- <?php
-    session_start();
-    if(!$_SESSION['logado']){
-      header('Location: login.php?erro=3');
-    }
- ?>
+<?php
+session_start();
+if (!$_SESSION['logado']) {
+  header('Location: login.php?erro=3');
+}
+require_once('app/entities/Vaga.php');
+$vaga = new Vaga();
+$vagas = $vaga->atualizar();
+?>
 
 
 <html lang="PT-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,9 +21,9 @@
 </head>
 
 <body>
-<?php
-        require_once('layout/header_logado.php');
-    ?>
+  <?php
+  require_once('layout/header_logado.php');
+  ?>
 
   <div class="container">
     <div class="perfil">
@@ -27,13 +31,13 @@
         <h1>Perfil:</h1>
       </section>
       <section class="grid-1">
-        <p> Nome: 
-        <?php
-        echo($_SESSION['nome']);?>
+        <p> Nome:
+          <?php
+          echo ($_SESSION['nome']); ?>
         </p>
         <p>Email:
-        <?php
-          echo($_SESSION['email']);?>
+          <?php
+          echo ($_SESSION['email']); ?>
         </p>
         <p>Ecolaridade: Estudante TADS6</p>
         <p>Interesse: FullStack</p>

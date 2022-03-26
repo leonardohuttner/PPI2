@@ -4,7 +4,7 @@
     require_once('../entities/vaga.php');
     
     if(!isset($_REQUEST['op'])){
-        header('Location: ../../admin-posts.php');
+        header('Location: ../../admin-vaga.php');
     }
     
     $operacao = null;
@@ -17,19 +17,39 @@
         $operacao = filter_var($_GET['op'], FILTER_SANITIZE_SPECIAL_CHARS);
     }
     
-    
+    var_dump($operacao);
     switch($operacao){
+        case 'novo':
+            novaVaga();
+            break;
         case 'editar':
             editarVaga($_GET['id']);
             break;
         case 'excluir':
             excluirVaga($_GET['id']);
             break;
-        // case 'atualizar':
-        //     atualizarVaga();
-        //     break;
+        case 'atualizar':
+            atualizarVaga($_GET['id']);
+            break;
     }
     
+    function novaVaga(){    
+        $titulo = filter_var($_POST['titulo'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $descricao = filter_var($_POST['descricao']);
+        $tipo = filter_var($_POST['tipo'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $empresa = filter_var($_POST['empresa'], FILTER_SANITIZE_SPECIAL_CHARS);
+        
+        $vaga = new Vaga();
+        $vaga->setTitulo($titulo);
+        $vaga->setDescricao($tipo);
+        $vaga->setTipo($descricao);
+        $vaga->setEmpresa($empresa);
+        if($vaga->novo()){
+            header('Location: ../../index.php?erro=6');
+        }else{
+            header('Location: ../../index.php?erro=7');
+        }
+    }
     
     function editarVaga($id){
         $vagas = new Vaga();
@@ -47,36 +67,35 @@
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         $vagas = new Vaga();
         $vaga = $vagas->selecionar($id);
-        var_dump($vaga);exit;
-        if($vaga->excluir()){//se excluiu corretamente
+        if($vaga->excluir()){
             header('Location: ../../admin-vaga.php?erro=5');
-        }else{//se deu ruim
+        }else{
             header('Location: ../../admin-vaga.php?erro=4');
         }
     }
     
-    // function atualizarVaga(){
-    //     if(empty($_POST['id'])){
-    //         header('Location: ../../admin-vaga.php?erro=2');
-    //         exit;
-    //     }
+    function atualizarVaga(){
+        if(empty($_POST['id'])){
+            header('Location: ../../index.php?erro=2');
+            exit;
+        }
     
-    //     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
-    //     $titulo = filter_var($_POST['titulo'], FILTER_SANITIZE_SPECIAL_CHARS);
-    //     $data = filter_var($_POST['data']);
-    //     $autor = filter_var($_POST['autor'], FILTER_SANITIZE_SPECIAL_CHARS);
-    //     $texto = filter_var($_POST['texto'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+        $titulo = filter_var($_POST['titulo'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $descricao = filter_var($_POST['descricao']);
+        $tipo = filter_var($_POST['tipo'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $empresa = filter_var($_POST['empresa'], FILTER_SANITIZE_SPECIAL_CHARS);
         
-    //     $posts = new Post();
-    //     $post = $posts->selecionar($id);
-    //     $post->setTitulo($titulo);
-    //     $post->setAutor($autor);
-    //     $post->setData($data);
-    //     $post->setTexto($texto);
-    //     if($post->atualizar()){
-    //         header('Location: ../../admin-vaga.php?erro=3');
-    //     }else{
-    //         header('Location: ../../admin-vaga.php?erro=2');
-    //     }
-    // }
+        $posts = new Vaga();
+        $post = $posts->selecionar($id);
+        $post->setTitulo($titulo);
+        $post->setDescricao($tipo);
+        $post->setTipo($descricao);
+        $post->setEmpresa($empresa);
+        if($post->atualizar()){
+            header('Location: ../../index.php?erro=3');
+        }else{
+            header('Location: ../../index.php?erro=2');
+        }
+    }
 ?>

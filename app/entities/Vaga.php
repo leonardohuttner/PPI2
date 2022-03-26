@@ -108,21 +108,20 @@ class Vaga
         return true;
     }
 
-    public function salvar()
+    public function novo()
     {
-        $sql = 'INSERT INTO post(titulo, descricao, tipo, empresa), VALUES(?, ?, ?, ?)';
+        $sql = 'INSERT INTO vaga(titulo, descricao, tipo, empresa) VALUES (?, ?, ?, ?)';
         $conexao = $this->database->getConexao();
         $consulta = $conexao->prepare($sql);
         $consulta->bindValue(1, $this->titulo, PDO::PARAM_STR);
-        $consulta->bindValue(2, $this->descricao, PDO::PARAM_STR);
+        $consulta->bindValue(2, $this->empresa, PDO::PARAM_STR);
         $consulta->bindValue(3, $this->tipo, PDO::PARAM_STR);
-        $consulta->bindValue(4, $this->empresa, PDO::PARAM_STR);
+        $consulta->bindValue(4, $this->descricao, PDO::PARAM_STR);
         $resultado = $consulta->execute();
         if (!$resultado) {
             var_dump($consulta->errorInfo());
             return false;
         }
-        //return $consulta->rowCount(); //retorna quantidade de linhas inseridas
         return true;
     }
 }
