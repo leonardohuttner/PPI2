@@ -9,10 +9,11 @@ class Conexao //singleton - design pattern
     private $debug = true;
     private $driver = 'mysql';
     private $servidor = 'localhost';
-    private $database = 'sistema-php';
+    private $database = 'ppi2';
     private $login = 'root';
-    private $senha = '1234';
+    private $senha = 'root';
     private static $db = null;
+    //PORTA 3307 mysql ja esta rodando em 3306
 
     private function __construct()
     {
@@ -23,7 +24,7 @@ class Conexao //singleton - design pattern
                     break;
                 
                 case 'mysql': 
-                    $this->conexao = new PDO("mysql:host=$this->servidor;dbname=$this->database;", $this->login, $this->senha);
+                    $this->conexao = new PDO("mysql:host=$this->servidor;port=3307;dbname=$this->database;", $this->login, $this->senha);
                     break;
             }
             if($this->debug) $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -19,9 +19,6 @@
     
     
     switch($operacao){
-        case 'listar':
-            listarPosts();
-            break;
         case 'editar':
             editarVaga($_GET['id']);
             break;
@@ -33,9 +30,6 @@
         //     break;
     }
     
-    function listarPosts(){
-    
-    }
     
     function editarVaga($id){
         $vagas = new Vaga();

@@ -1,4 +1,5 @@
 <?php
+    require_once('Conexao.php');
 class Vaga
 {
     private $id;
@@ -9,7 +10,48 @@ class Vaga
 
     public function __construct($titulo = null, $descricao = null, $tipo = null, $empresa = null)
     {
+        if($titulo != null) $this->titulo = $titulo;  
+        if($descricao != null) $this->descricao = $descricao;
+        if($tipo != null) $this->tipo = $tipo;
+        if($empresa != null) $this->empresa = $empresa; 
+        $this->database = Conexao::getInstancia();
     }
+
+	public function getId(){
+		return $this->id;
+	}
+
+	public function getTitulo(){
+		return $this->titulo;
+	}
+
+	public function setTitulo($titulo){
+		$this->titulo = $titulo;
+	}
+
+	public function getDescricao(){
+		return $this->descricao;
+	}
+
+    public function setDescricao($descricao){
+		$this->descricao = $descricao;
+	}
+
+	public function getTipo(){
+		return $this->tipo;
+	}
+
+	public function setTipo($tipo){
+		$this->tipo = $tipo;
+	}
+
+	public function getEmpresa(){
+		return $this->empresa;
+	}
+
+	public function setEmpresa($empresa){
+		$this->empresa = $empresa;
+	}
 
     public function listar($limite = null)
     {
